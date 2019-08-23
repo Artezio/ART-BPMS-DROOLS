@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_12pinfd" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.0.1">
+  <bpmn:process id="FindExpensiveItemsManufacturers" isExecutable="true" camunda:candidateStarterGroups="BORROWER">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1lq2b63</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1lq2b63" sourceRef="StartEvent_1" targetRef="Task_0k71vv5" />
+    <bpmn:endEvent id="EndEvent_1aievfr">
+      <bpmn:incoming>SequenceFlow_1r4nr4e</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1r4nr4e" sourceRef="Task_0k71vv5" targetRef="EndEvent_1aievfr" />
+    <bpmn:serviceTask id="Task_0k71vv5" name="Determine manufacturers of expensive items" camunda:delegateExpression="${droolsDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="rules">
+            <camunda:list>
+              <camunda:value>find-expensive-items-manufacturers.drl</camunda:value>
+              <camunda:value>find-manufacturers-from-usa.drl</camunda:value>
+            </camunda:list>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="facts">
+            <camunda:list>
+              <camunda:value>${items}</camunda:value>
+            </camunda:list>
+          </camunda:inputParameter>
+          <camunda:outputParameter name="inserted">#{inserted}</camunda:outputParameter>
+          <camunda:outputParameter name="updated">#{updated}</camunda:outputParameter>
+          <camunda:outputParameter name="deleted">#{deleted}</camunda:outputParameter>
+          <camunda:outputParameter name="facts">#{facts}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1lq2b63</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1r4nr4e</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="FindExpensiveItemsManufacturers">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="184" y="103" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lq2b63_di" bpmnElement="SequenceFlow_1lq2b63">
+        <di:waypoint x="220" y="121" />
+        <di:waypoint x="325" y="121" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1aievfr_di" bpmnElement="EndEvent_1aievfr">
+        <dc:Bounds x="536" y="103" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1r4nr4e_di" bpmnElement="SequenceFlow_1r4nr4e">
+        <di:waypoint x="425" y="121" />
+        <di:waypoint x="536" y="121" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0us3c01_di" bpmnElement="Task_0k71vv5">
+        <dc:Bounds x="325" y="81" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

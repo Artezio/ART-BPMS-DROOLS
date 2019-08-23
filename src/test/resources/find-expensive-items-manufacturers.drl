@@ -1,0 +1,15 @@
+package tvc;
+
+import com.artezio.bpm.integration.drools.model.Item;
+import com.artezio.bpm.integration.drools.model.Manufacturer;
+import java.util.*;
+
+rule "Find expensive items manufacturers"
+	dialect "mvel"
+
+    when
+        $items: List()
+        $expensiveItem : Item(price > 200.0) from $items
+    then
+        insert($expensiveItem.manufacturer);
+end

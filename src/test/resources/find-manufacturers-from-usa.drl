@@ -1,0 +1,13 @@
+package tvc;
+
+import com.artezio.bpm.integration.drools.model.Manufacturer;
+
+rule "Find manufacturers from USA"
+	dialect "mvel"
+
+    when
+        $manufacturer : Manufacturer(legalAddress != "USA")
+    then
+        delete($manufacturer);
+
+end
