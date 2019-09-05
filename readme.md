@@ -14,7 +14,7 @@ This module adds [Drools] DRL support to Camunda BPMS
     ```
     <dependency>
         <groupId>com.artezio.bpm.camunda</groupId>
-        <artifactId>drools</artifactId>
+        <artifactId>bpms-drools</artifactId>
         <version>1.0</version>
     </dependency>
     ```

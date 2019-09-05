@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.artezio.bpm.camunda</groupId>
-    <artifactId>drools</artifactId>
+    <artifactId>bpms-drools</artifactId>
     <version>1.0</version>
     <build>
-		<finalName>art-bpms-drools</finalName>
+		<finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
