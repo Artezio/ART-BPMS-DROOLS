@@ -9,6 +9,7 @@
     <artifactId>drools</artifactId>
     <version>1.0</version>
     <build>
+		<finalName>art-bpms-drools</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
