@@ -34,6 +34,7 @@ This module adds [Drools] DRL support to Camunda BPMS
 1. To map local task variable to global process variable you could for example create task output parameter of type `text` and specify `#{inserted}` as value. The variable is then populated with `List` of inserted objects, despite being marked as `text`
 1. Deploy the Process Application archive and run the process. DRL files will be executed when the Service task is run
   
+  
    
 [Drools]: https://www.drools.org   
 [Maven]: https://maven.apache.org
