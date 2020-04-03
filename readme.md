@@ -9,13 +9,20 @@ This module adds [Drools] DRL support to Camunda BPMS
 #### Installation
 
 1. [Maven] is required for building this module
-1. Clone this repository, navigate into its root folder and execute `mvn clean install` command
-1. To add the module into maven or gradle project, the following dependency should be imported and added to project's WAR/EAR libs directory or camunda engine's classpath:
+1. Open your project's pom
+2. Add the reference to the artezio mvn repository:
+    ```xml
+    <repository>
+        <id>artezio</id>
+        <url>https://nexus.artezio.net/repository/maven-releases</url>
+    </repository>
     ```
+2. Add the dependency:
+    ```xml
     <dependency>
         <groupId>com.artezio.bpm.camunda</groupId>
         <artifactId>bpms-drools</artifactId>
-        <version>1.0</version>
+        <version>${bpm-drools.version}</version>
     </dependency>
     ```
 
